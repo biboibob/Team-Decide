@@ -1,0 +1,47 @@
+html, body {
+	height: 100%;
+	background-color: #005F97 !important;
+}
+
+
+.container {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.content {                        
+	background-color: white;
+	height: 600px;
+}
+
+.left {
+	background-color: #0079BF;
+	width: 100%;
+}
+
+.right {
+	width: 100%;
+}
+
+.btn {
+	margin-top: 30px;
+	width: 100%;
+	background-color: #D45079;
+	color:white;
+}
+
+.btn:hover {
+	border: 1px #D45079 solid;
+	background-color: transparent;
+	color: #D45079;
+}
+
+input[type=text],input[type=password] {
+	width: 100%;
+	height: 35px;
+
+}
+

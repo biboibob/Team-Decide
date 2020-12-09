@@ -1,0 +1,380 @@
+/*Pembuatan Grid Box*/
+
+
+
+:root {
+    font-size: 12px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+  
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #0079bf;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: inherit;
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    cursor: pointer;
+}
+
+:focus {
+    outline-color: #fa0;
+}
+
+
+/* Lists */
+
+.lists-container::-webkit-scrollbar {
+    height: 2.4rem;
+}
+
+.lists-container::-webkit-scrollbar-thumb {
+    background-color: #66a3c7;
+    border: 0.8rem solid #0079bf;
+    border-top-width: 0;
+}
+
+.lists-container {
+    display: inline-block;
+    align-items: start;
+    padding: 0 0.8rem 0.8rem;
+    overflow-x: auto;
+    height: calc(100vh - 8.6rem);
+    margin: 15px;   
+}
+
+.list {
+    flex: 0 0 27rem;
+    display: inline-block;
+    flex-direction: column;
+    background-color: #e2e4e6;
+    max-height: calc(70vh - 11.8rem);
+    border-radius: 0.3rem;
+    margin-right: 1rem;
+}
+
+.list:last-of-type {
+    margin-right: 0;
+
+}
+
+.list-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    padding: 1rem;
+}
+
+.list-items {
+    flex: 1;
+    display: inline-block;
+    flex-direction: column;
+    align-content: start;
+    padding: 0 0.6rem 0.5rem;
+    overflow-y: auto;
+}
+
+.list-items::-webkit-scrollbar {
+    width: 1.6rem;
+}
+
+.list-items::-webkit-scrollbar-thumb {
+    background-color: #c4c9cc;
+    border-right: 0.6rem solid #e2e4e6;
+}
+
+.list-items li {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.3;
+    background-color: #fff;
+    padding: 0.65rem 0.6rem;
+    color: #4d4d4d;
+    border-bottom: 0.1rem solid #ccc;
+    border-radius: 0.3rem;
+    margin-bottom: 0.6rem;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+
+.list-items li:last-of-type {
+    margin-bottom: 0;
+}
+
+.list-items li:hover {
+    background-color: #eee;
+
+}
+
+.add-card-btn {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #838c91;
+    padding: 1rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+.add-card-btn:hover {
+    background-color: #cdd2d4;
+    color: #4d4d4d;
+    text-decoration: underline;
+}
+
+.add-list-btn {
+    flex: 0 0 27rem;
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 400;
+    background-color: #006aa7;
+    color: #a5cae0;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: background-color 150ms;
+    text-align: left;
+}
+
+
+
+.add-card-btn::after,
+.add-list-btn::after {
+    content: '...';
+}
+
+/*
+
+The following rule will only run if your browser supports CSS grid.
+
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling. 
+
+*/
+
+@supports (display: grid) {
+    body {
+        display: grid;
+        grid-template-rows: 4rem 3rem auto;
+        grid-row-gap: 0.8rem;
+    }
+
+    .user-settings {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-column-gap: 0.8rem;
+    }
+
+    .board-controls {
+        display: grid;
+        grid-auto-flow: column;
+        grid-column-gap: 1rem;
+    }
+
+    .lists-container {
+        display: grid;
+        grid-auto-columns: 40rem;
+        grid-auto-flow: column;
+        grid-column-gap: 1rem;
+    }
+
+    .list {
+        display: grid;
+        grid-template-rows: auto minmax(auto, 1fr) auto;  
+    }
+
+    .list-items {
+        display: grid;
+        grid-row-gap: 0.6rem;
+        padding-left: 10px;
+        padding-right: 10px;     
+    }
+
+    .logo,
+    .list,
+    .list-items li,
+    .boards-btn,
+    .board-info-bar,
+    .board-controls .btn,
+    .user-settings-btn {
+        margin: 0;
+    }
+}
+
+
+/* ADD ACTIVITY */
+
+.show {
+  display: block;
+  height: 100%;
+
+}
+
+.detail-list {
+  display: block;
+  margin: 10px;
+
+}
+
+.add-detail {
+  display: block;
+  border-radius: 5px;
+  border-style: none;
+  padding: 5px;
+  width: 100%;
+  margin-top: 1rem;
+
+}
+
+.add-opt {
+  font-weight: bold;
+  float: right;
+  margin : 10px 10px 15px 0;
+}
+
+/*add new board*/
+
+.add-board {
+  background-color: #006AA7 !important; 
+
+}
+
+
+
+/* CSS for Modal/Detail Activity */
+
+.modal-dialog {
+  min-width: 1200px !important;
+}
+
+.detailActivityContent {
+  list-style-type: none;
+  background-color: #e5dfdf;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 20px;
+  padding-left: 20px;
+  
+}
+
+.detailActivityContent:not(:first-child) {
+  margin-top: 10px;
+}
+
+
+
+/***/
+
+/* Detail Activity */
+
+.desc-detail {
+  font-size: 16px;
+}
+
+.add-checklist {
+  height: 35px;
+}
+
+
+
+/* Check Box */
+
+
+.bg {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.span_pseudo, .chiller_cb span:before, .chiller_cb span:after {
+  content: "";
+  display: inline-block;
+  background: #fff;
+  width: 0;
+  height: 0.2rem;
+  position: absolute;
+  transform-origin: 0% 0%;
+}
+
+.chiller_cb {
+  position: relative;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+.chiller_cb input {
+  display: none;
+}
+.chiller_cb input:checked ~ span {
+  background: #fd2727;
+  border-color: #fd2727;
+}
+.chiller_cb input:checked ~ span:before {
+  width: 1rem;
+  height: 0.15rem;
+  transition: width 0.1s;
+  transition-delay: 0.3s;
+}
+.chiller_cb input:checked ~ span:after {
+  width: 0.4rem;
+  height: 0.15rem;
+  transition: width 0.1s;
+  transition-delay: 0.2s;
+}
+.chiller_cb input:disabled ~ span {
+  background: #ececec;
+  border-color: #dcdcdc;
+}
+.chiller_cb input:disabled ~ label {
+  color: #dcdcdc;
+}
+.chiller_cb input:disabled ~ label:hover {
+  cursor: default;
+}
+.chiller_cb label {
+  padding-left: 2rem;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  margin-bottom:0;
+}
+.chiller_cb span {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid #ccc;
+  position: absolute;
+  left: 0;
+  transition: all 0.2s;
+  z-index: 1;
+  box-sizing: content-box;
+}
+.chiller_cb span:before {
+  transform: rotate(-55deg);
+  top: 1rem;
+  left: 0.37rem;
+}
+.chiller_cb span:after {
+  transform: rotate(35deg);
+  bottom: 0.35rem;
+  left: 0.2rem;
+}
+
+
+

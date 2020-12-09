@@ -1,0 +1,168 @@
+body,html {
+	height: 100%;
+}
+
+.active {
+	display: block;
+}
+
+.menuTab {
+	height: 100%;	
+}
+
+.contentTab {
+	height: 100%;
+	background-color: #0079BF;
+	padding: 20px;
+	padding-right: 25px;
+	padding-left: 25px;
+}
+
+.listSubmenu a {
+	text-decoration: none;
+}
+
+.listSubmenu li {
+	padding-left: 20px !important;
+	padding: 5px;
+	color:black;
+}
+
+.listSubmenu li:hover {
+	background-color: #0079BF;
+	padding-left: 20px !important;
+	padding: 5px;
+	color:white;
+	cursor: pointer;
+	border-radius: 20px;
+}
+
+.active {
+	background-color: #0079BF;
+	padding: 5px;
+	color:white;
+	cursor: pointer;
+	border-radius: 20px;
+}
+
+.logout {
+	border-radius: 20px;
+	border:2px solid #D45079;
+	padding: 5px;
+	padding-right: 8px;
+	padding-left: 8px;
+	font-weight: 600;
+	margin-bottom: 20px;
+	cursor: pointer;
+	text-decoration: none;
+	color:#D45079;
+	
+}
+
+
+
+.logout:hover {
+	background-color: #D45079;
+	color:white !important;
+	text-decoration: none;
+		
+}
+
+
+
+/*Seperator Admin Dashboard*/
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 600;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #000;
+}
+.separator::before {
+    margin-right: 1em;
+}
+.separator::after {
+    margin-left: 1em;
+}
+
+.tableProject {
+	width: 100%;
+	overflow:auto;
+}
+
+.tableProject thead tr th {
+	
+}
+
+.tableProject tr:hover {
+	background-color: #0079BF;
+	color: white;
+	border-radius: 15px;
+}
+
+
+
+#tableUserManagement thead tr th, #tableUserManagement tbody tr td{
+	font-size: 12px !important;
+}
+
+#tableUserManagement  tbody {
+	height: 90px;
+}
+
+/*Table Untuk Activity*/
+
+.fixed_header{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    
+}
+
+.fixed_header tbody{
+  display:block;
+  width: 100%;
+  overflow-y: auto;
+  height: 110px;
+  border:2px solid white;
+  color:white;
+}
+
+.fixed_header tbody::-webkit-scrollbar {
+    width: 0.6rem;
+}
+
+.fixed_header tbody::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-right: 0.6rem solid white;
+    border-radius: 15px;
+}
+
+.fixed_header thead tr {
+   display: block;
+}
+
+.fixed_header thead {
+  background: white;
+  color: #0079BF;
+}
+
+.fixed_header th, .fixed_header td {
+  padding: 5px;
+  text-align: center;
+  width: 200px;
+}
+
+#tableUserManagement th, #tableUserManagement td {
+	width: 300px;
+} 
+
+.detailDataReport tr:nth-child(even) {
+	background-color: #EBEBEB;
+}

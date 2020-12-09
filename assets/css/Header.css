@@ -1,0 +1,35 @@
+
+:root {
+    font-size: 12px;
+}
+
+.dropdown-item:hover {
+	background-color: #c9d1d3;
+}
+
+.dropdown-menu {
+	right: 50px;
+	width: 100px !important;
+	margin-top: 15px;
+}
+
+
+.NotifModal {
+
+}
+
+.NotifModal::-webkit-scrollbar {
+   width: 0.8rem;
+   padding-right: 5px !important;
+   box-sizing: border-box;
+}
+
+.NotifModal::-webkit-scrollbar-thumb {
+ 	background-color: #C15A7B;   
+    border-radius: 20px;
+}
+
+.logoBack:hover {
+	opacity: 50%;
+	cursor: pointer;
+}

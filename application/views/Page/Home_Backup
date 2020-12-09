@@ -1,0 +1,316 @@
+<div class="col-md-10">
+	<div class="lists-container">
+		
+	<!-- add new activity -->
+
+	<?php foreach($board as $board) { ?>
+		<div class="list">
+				<h2 class="list-title" style="font-size: 18px;"><?php echo $board->board_title ?></h2>
+			
+				<ul class="list-items">
+
+				<?php foreach($board_content as $content) { ?>
+						<?php if($board->id_board == $content->id_board) { ?>
+									<li data-toggle="modal" data-target="#DetailActivity" id="<?php echo $content->id_content ?>" class="activityDetail">
+									<a style="font-size: 15px;" ><?php echo $content->content_title ?></a>
+										
+									</li>							
+						<?php } } ?>
+				</ul>
+
+
+			<button  class="add-card-btn btn-add btn">+ Add a card</button>
+				<form method="post" action="<?php echo base_url() ?>Board/add_activity">
+					<!-- post data board -->
+						<input type="hidden" value="<?php echo $board->board_title ?>" name="board_title">
+						<input type="hidden" value="<?php echo $board->id_board ?>" name="id_board">
+					<!--  -->
+
+					<div id="add-list" class="cdropdate" style="display:none;">
+						<div class="row detail-list">	
+							<input name="activity" type="text" class="add-detail" placeholder="Input Activity...">
+							<input name="description" type="text" class="add-detail" placeholder="Input Description...">
+							<i id="icon" class="fas fa-tag fa-2x" href="#" style="margin:20px 10px 10px 10px; color:#727882;"></i>
+							<i id="icon" class="fas fa-calendar-alt fa-2x" href="#" style="margin:20px 10px 10px 10px; color:#727882;"></i>
+						</div>
+							<input type="submit" class="add-opt" style="background-color:#27B6BA; border:none; text-decoration: none; padding:5px; color:white; border-radius: 10px; font-size: 18px;">
+			
+							<input type="button" class="add-opt" name="cancel" value="cancel" onClick="window.location.href='<?php echo base_url() ?>Board/home';" style="background-color: white; text-decoration: none; border:none;padding:5px; border-radius: 10px; font-size: 18px; color:#27B6BA;">
+							</input>
+					</div>
+				</form>
+		
+		</div>
+	<?php } ?>	
+
+<!-- modal untuk detail activity -->
+
+<!-- The Modal -->
+  <div class="modal fade" id="DetailActivity">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h2 class="modal-title"><strong>Modal Heading</strong></h2>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <!-- <div id="activity_result"></div> -->
+          <div class="containter">
+
+          	<div class="row">
+          		<div class="col-md-9 desc-detail">
+
+          			<label>Description :</label>
+          			<div class="form-group">
+          				<input type="text" class="form-control">
+          			</div>
+
+          			<label>Checkbox Activity :</label>
+
+          			 <div class="checkbox" id="trycheck">
+                      <label>1.
+                        <input id="choose" type="checkbox" value="">
+                      </label>
+                    </div>
+
+
+					<div class="input-group mb-3">
+						  	<input type="text" class="form-control" placeholder="Add Checkbox Activity" aria-label="Recipient's username" aria-describedby="basic-addon2">
+						  	<div class="input-group-append">
+						    	<button class="input-group-text" id="basic-addon2" style="background-color: #0FCD79;">+</button>
+						  	</div>
+						 </div>
+          		</div>
+
+          		<div class="col-md-3">
+
+          			<ul>
+          				<h5><strong>Add To Card</strong></h5>
+          				
+
+						<li class="detailActivityContent">
+          					<i class="fas fa-calendar-check"></i>
+          					<a style="margin-left:5px;">Due Date</a>
+						</li>
+
+						<li class="detailActivityContent">
+          					<i class="fas fa-tags"></i>
+          					<a style="margin-left:5px;">Label</a>
+						</li>			
+          			</ul>
+
+          			<ul>
+          				<h5><strong>Add-On</strong></h5>
+          				<li class="detailActivityContent">
+          					<i class="fas fa-user"></i>
+          					<a style="margin-left:5px;">Document</a>
+						</li>
+		
+          			</ul>
+
+          		</div>
+          	</div>
+          </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div> 
+        
+      </div>
+    </div>
+  </div>
+
+<!--  -->
+
+	<!-- add new board! -->
+	
+	<div class="list" style="background-color: #006AA7;">
+		<a class="add-list-btn btn btn-add" id="add-list" style="color: white;">+ Add New Board</a>
+			<form method="post" action="<?php echo base_url() ?>Board/add_board">
+				<div id="add-board" class="cdropdate" style="display:none;">
+						<div class="row detail-list">	
+							<center><h4 style="color: white;">Add New Board!</h4></center>
+							<input name="board-title" type="text" class="add-detail" placeholder="Input Here...">
+							<input name="board-desc" type="text" class="add-detail" placeholder="Input Here...">
+							
+						</div>
+							<input type="submit" class="add-opt" style="background-color:#27B6BA; border:none; text-decoration: none; padding:5px; color:white; border-radius: 10px; font-size: 18px;">
+			</form>
+							<button class="add-opt" href="#" style="background-color: white; text-decoration: none;
+								border:none;padding:5px; border-radius: 10px; font-size: 18px; color:#27B6BA;">Cancel
+							</button>
+						</div>
+					</div>
+	</div>
+</div
+
+
+
+
+/******************************************************************************************************/
+/******************************************************************************************************/
+/******************************************************************************************************/
+/******************************************************************************************************/
+/******************************************************************************************************/
+
+
+
+
+
+<?php foreach($board as $board) { ?>
+		<div class="list">
+				<h2 class="list-title" style="font-size: 18px;"><?php echo $board->board_title ?></h2>
+			
+				<ul class="list-items">
+
+				<?php foreach($board_content as $content) { ?>
+						<?php if($board->id_board == $content->id_board) { ?>
+									<li data-toggle="modal" data-target="#DetailActivity" id="<?php echo $content->id_content ?>" class="activityDetail">
+									<a style="font-size: 15px;" ><?php echo $content->content_title ?></a>
+										
+									</li>							
+						<?php } } ?>
+				</ul>
+
+
+			<button  class="add-card-btn btn-add btn">+ Add a card</button>
+				<form method="post" action="<?php echo base_url() ?>Board/add_activity">
+					<!-- post data board -->
+						<input type="hidden" value="<?php echo $board->board_title ?>" name="board_title">
+						<input type="hidden" value="<?php echo $board->id_board ?>" name="id_board">
+					<!--  -->
+
+					<div id="add-list" class="cdropdate" style="display:none;">
+						<div class="row detail-list">	
+							<input name="activity" type="text" class="add-detail" placeholder="Input Activity...">
+							<input name="description" type="text" class="add-detail" placeholder="Input Description...">
+							<i id="icon" class="fas fa-tag fa-2x" href="#" style="margin:20px 10px 10px 10px; color:#727882;"></i>
+							<i id="icon" class="fas fa-calendar-alt fa-2x" href="#" style="margin:20px 10px 10px 10px; color:#727882;"></i>
+						</div>
+							<input type="submit" class="add-opt" style="background-color:#27B6BA; border:none; text-decoration: none; padding:5px; color:white; border-radius: 10px; font-size: 18px;">
+			
+							<input type="button" class="add-opt" name="cancel" value="cancel" onClick="window.location.href='<?php echo base_url() ?>Board/home';" style="background-color: white; text-decoration: none; border:none;padding:5px; border-radius: 10px; font-size: 18px; color:#27B6BA;">
+							</input>
+					</div>
+				</form>
+		
+			</div>
+		<?php } ?>
+
+		<!-- modal untuk detail activity -->
+
+<!-- The Modal -->
+  <div class="modal fade" id="DetailActivity">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h2 class="modal-title"><strong>Modal Heading</strong></h2>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <!-- <div id="activity_result"></div> -->
+          <div class="containter">
+          	<div class="row">
+          		<div class="col-md-9 desc-detail">
+
+          			<label>Description :</label>
+          			<div class="form-group">
+          				<input type="text" class="form-control">
+          			</div>
+
+          			<label>Checkbox Activity :</label>
+
+          			 <div class="checkbox" id="trycheck">
+                      <label>1.
+                        <input id="choose" type="checkbox" value="">
+                      </label>
+                    </div>
+
+
+					<div class="input-group mb-3">
+						  	<input type="text" class="form-control" placeholder="Add Checkbox Activity" aria-label="Recipient's username" aria-describedby="basic-addon2">
+						  	<div class="input-group-append">
+						    	<button class="input-group-text" id="basic-addon2" style="background-color: #0FCD79;">+</button>
+						  	</div>
+						 </div>
+          		</div>
+
+          		<div class="col-md-3">
+
+          			<ul>
+          				<h5><strong>Add To Card</strong></h5>
+          				
+
+						<li class="detailActivityContent">
+          					<i class="fas fa-calendar-check"></i>
+          					<a style="margin-left:5px;">Due Date</a>
+						</li>
+
+						<li class="detailActivityContent">
+          					<i class="fas fa-tags"></i>
+          					<a style="margin-left:5px;">Label</a>
+						</li>			
+          			</ul>
+
+          			<ul>
+          				<h5><strong>Add-On</strong></h5>
+          				<li class="detailActivityContent">
+          					<i class="fas fa-user"></i>
+          					<a style="margin-left:5px;">Document</a>
+						</li>
+		
+          			</ul>
+
+          		</div>
+          	</div>
+          </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div> 
+        
+      </div>
+    </div>
+  </div>
+
+	<!--  -->
+
+	<!-- add new board! -->
+	
+	<div class="list" style="background-color: #006AA7;">
+		<a class="add-list-btn btn btn-add" id="add-list" style="color: white;">+ Add New Board</a>
+			<form method="post" action="<?php echo base_url() ?>Board/add_board">
+				<div id="add-board" class="cdropdate" style="display:none;">
+						<div class="row detail-list">	
+							<center><h4 style="color: white;">Add New Board!</h4></center>
+							<input name="board-title" type="text" class="add-detail" placeholder="Input Here...">
+							<input name="board-desc" type="text" class="add-detail" placeholder="Input Here...">
+							
+						</div>
+							<input type="submit" class="add-opt" style="background-color:#27B6BA; border:none; text-decoration: none; padding:5px; color:white; border-radius: 10px; font-size: 18px;">
+			</form>
+							<button class="add-opt" href="#" style="background-color: white; text-decoration: none;
+								border:none;padding:5px; border-radius: 10px; font-size: 18px; color:#27B6BA;">Cancel
+							</button>
+						</div>
+					</div>	
+
+		</div>
+			<div class="col-md-3" style="background-color: blue;">
+				<h3>Menu</h3>
+
+			</div>
+		</div>
+	</div>
